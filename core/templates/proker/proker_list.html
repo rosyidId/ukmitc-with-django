@@ -1,0 +1,62 @@
+
+{% extends "layouts/base.html" %}
+
+{% block title %} Tables {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+  <div class="content-wrapper">
+    <div class="row">
+      <div class="col-md-6 grid-margin stretch-card">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h2 class="">{{ title }}</h2>
+            <div>
+              <a class="btn btn-primary" href="{% url 'prokerCreate' %}">
+                <i class="mdi mdi-plus"></i>
+                Tambah</a>
+            </div>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nama Program</th>
+                    <th>Opsi</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for proker in proker_list %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ proker.nama_program }}</td>
+                    <td>
+                      <a href="{% url 'detail' pk=anggota.id %}" class="btn btn-primary">
+                        Detail<i class="fa fa-book"></i>
+                      </a>
+                      <a href="{% url 'edit' pk=anggota.id %}" class="btn btn-warning">
+                        Edit<i class="fa fa-edit"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE -->
+{% block javascripts %}
+<script>
+    $(document).ready(function() {
+    $('#table').DataTable();
+  } );
+</script>
+{% endblock javascripts %}

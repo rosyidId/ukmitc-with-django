@@ -1,0 +1,100 @@
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+  <ul class="nav">
+    <li class="nav-item nav-profile">
+      <a href="{% url 'home' %}" class="nav-link">
+        <div class="">
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <img class="img-fluid img-thumbnail" src="/static/assets/images/faces/itc.png" alt="profile image">
+        </div>
+      </a>
+    </li>
+            
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <li class="nav-item nav-category">Main Menu</li>
+    <li class="nav-item active">
+      <a class="nav-link" href="/">
+        <i class="menu-icon typcn typcn-document-text"></i>
+        <span class="menu-title">DASHBOARD</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+        <i class="menu-icon typcn typcn-coffee"></i>
+        <span class="menu-title">DAFTAR ANGGOTA</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="ui-basic">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'anggota' %}"> Semua Devisi</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'devisi' id=1 %}"> Devisi Pemrograman </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'devisi' id=2 %}"> Devisi Multimedia </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'devisi' id=3 %}"> Devisi Jaringan </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'devisi' id=4 %}"> Devisi Komputer </a>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+        <i class="menu-icon typcn typcn-document-add"></i>
+        <span class="menu-title">KALENDER KERJA</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="auth">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'kalenderList' %}"> Semua Program </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'kalenderProgram' id=1 %}"> Program Mingguan </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'kalenderProgram' id=2 %}"> Program Bulanan </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'kalenderProgram' id=3 %}"> Program Triwulan </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'kalenderProgram' id=4 %}"> Program Tahunan </a>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="nav-item active">
+      <a class="nav-link" href="{% url 'jadwalList' %}">
+        <i class="menu-icon typcn typcn-document-text"></i>
+        <span class="menu-title">JADWAL DISKUSI</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'logout' %}" >
+        <i class="menu-icon typcn typcn-user-outline"></i>
+        <span class="menu-title">Logout ( {{ user.username }} )</span>
+      </a>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,57 @@
+
+{% extends "layouts/base.html" %}
+
+{% block title %} Tables {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+  <div class="content-wrapper">
+    <div class="row">
+      <div class="col-md-12 grid-margin stretch-card">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h2 class="">Kalender Kerja</h2>
+            <div>
+              <a class="btn btn-primary" href="{% url 'kalenderCreate' %}">
+                <i class="mdi mdi-plus"></i>
+                Tambah</a>
+            </div>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Tanggal Agenda</th>
+                    <th>Agenda</th>
+                    <th>Jenis Agenda</th>
+                    <th>Lokasi</th>
+                    <th>Deskripsi</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for kalender in kalender_list %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ kalender.tanggal_program }}</td>
+                    <td><b>{{ kalender.nama }}</b></td>
+                    <td>{{ kalender.program }}</td>
+                    <td>{{ kalender.lokasi_program }}</td>
+                    <td>{{ kalender.deskripsi }}</td>
+                  </tr>
+                  {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE -->
+{% block javascripts %}
+
+{% endblock javascripts %}

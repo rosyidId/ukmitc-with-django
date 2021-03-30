@@ -1,0 +1,74 @@
+{% extends "layouts/base.html" %}
+
+    {% block title %} Tables {% endblock title %}
+    
+    <!-- Specific CSS goes HERE -->
+    {% block stylesheets %}{% endblock stylesheets %}
+
+    {% block content %}
+    <style>
+        .content-grafik{
+            margin-bottom: 10px;
+        }
+    </style>
+    <!-- <div class="col-12"> -->
+        <div class="row content-grafik ">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        Diagram Jumlah Perusahaan Berdasarkan Kategori
+                    </div>
+                    <div class="card-body">
+                        <div id="anggotaByDevisi"></div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- </div> -->
+    {% endblock content %}
+
+{% block SCRIPT %}
+    <script type="text/javascript">
+        var chart1 = {
+            chart: {
+                renderTo: 'anggotaByDevisi',
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: 'Grafik Jumlah Anggota Berdasarkan Devisi'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.y} Anggota</b>'
+            },
+            accessibility: {
+                point: {
+                    valueSuffix: ' Anggota'
+                }
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.y} Anggota'
+                    }
+                }
+            },
+            series: [],
+            credits: {
+                enabled: false
+            }
+        };
+        
+        
+        jQuery.getJSON("api/anggotaByDevisi", function(resSeries) {
+            chart1.series.push(resSeries);
+            new Highcharts.Chart(chart1);
+        });
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{% endblock %}

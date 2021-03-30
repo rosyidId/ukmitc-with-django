@@ -1,0 +1,89 @@
+    {% extends "layouts/base.html" %}
+
+    {% block title %} Tables {% endblock title %}
+    
+    <!-- Specific CSS goes HERE -->
+    {% block stylesheets %}{% endblock stylesheets %}
+    
+    {% block content %}
+    
+      <div class="content-wrapper">
+        <div class="row">
+          <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <table class="table">
+                    <tbody>
+                      <tr>
+                          <th><h2>Detail Anggota</h2></th>
+                      </tr>
+                      <tr>
+                        <th style="width: 25%;">NIM</th>
+                        <td>{{ object.nim }}</td>
+                      </tr>
+                      <tr>
+                        <th>Nama</th>
+                        <td>{{ object.nama }}</td>
+                      </tr>
+                      <tr>
+                        <th>Alamat</th>
+                        <td>{{ object.alamat }}</td>
+                      </tr>
+                      <tr>
+                        <th>Tempat Lahir</th>
+                        <td>{{ object.tempat_lahir }}</td>
+                      </tr>
+                      <tr>
+                          <th>Tanggal Lahir</th>
+                          <td>{{ object.tanggal_lahir }}</td>
+                      </tr>
+                      <tr>
+                          <th>Jenis Kelamin</th>
+                          <td>{{ object.jenis_kelamin }}</td>
+                      </tr>
+                      <tr>
+                          <th>Program Studi</th>
+                          <td>{{ object.prodi }}</td>
+                      </tr>
+                      <tr>
+                          <th>Semester</th>
+                          <td>{{object.semester}}</td>
+                      </tr>
+                      <tr>
+                          <th>Devisi</th>
+                          <td>{{object.devisi}}</td>
+                      </tr>
+                      <tr>
+                          <th>Alasan Mengambil Devisi</th>
+                          <td>{{object.keterangan}}</td>
+                      </tr>
+                      <tr>
+                          <th>Nomor HP</th>
+                          <td>0{{object.nomor_hp}}</td>
+                      </tr>
+                      <tr>
+                          <th>Facebook</th>
+                          <td>{{object.facebook}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    {% endblock content %}
+    
+    <!-- Specific JS goes HERE -->
+    {% block scripts %}
+    <script>
+        const myModal = document.getElementById('myModal')
+        const myInput = document.getElementById('myInput')
+
+        myModal.addEventListener('shown.mdb.modal', () => {
+        myInput.focus()
+        })
+    </script>
+    {% endblock %}
+    
