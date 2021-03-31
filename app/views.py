@@ -202,4 +202,15 @@ def jadwal_create(request):
     
     template_name = 'jadwal/jadwal_form.html'
     return render(request, template_name, {'form':form})
+
+
+@login_required(login_url="/login/")
+def jadwal_delete(request, pk):
+    jadwal = get_object_or_404(JadwalDiskusi, pk=pk)
     
+    if request.method=='POST':
+        jadwal.delete()
+        return redirect('jadwalList')
+    
+    template_name='jadwal/jadwal_delete.html'
+    return render(request, template_name, {'object': jadwal})

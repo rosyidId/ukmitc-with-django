@@ -26,8 +26,9 @@ urlpatterns = [
     path('AnggotaByDevisi', grafik.AnggotaByDevisi.as_view()),
     path('anggotaByDevisi', grafik.AnggotaByDevisi.as_view()),
     
-    path('jadwal/create', views.jadwal_create, name="jadwalCreate"),
     path('jadwal', views.jadwal_list, name="jadwalList"),
+    path('jadwal/create', views.jadwal_create, name="jadwalCreate"),
+    path('jadwal/delete/<int:pk>', views.jadwal_delete, name="jadwalDelete"),
 
     # Matches any html file
     re_path(r'^.*\.*', views.pages, name='pages'),
