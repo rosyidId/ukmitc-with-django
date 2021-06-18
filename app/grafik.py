@@ -26,5 +26,4 @@ class AnggotaByDevisi(generic.View):
             "colorByPoint": True,
             "data": data
         }
-
         return JsonResponse(data_response)

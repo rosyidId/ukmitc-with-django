@@ -32,7 +32,17 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app',
     'rest_framework',
+    'calendarapp',
+    'api',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -129,3 +139,7 @@ STATICFILES_DIRS = (
 )
 #############################################################
 #############################################################
+
+LOGIN_URL = 'login/'
+LOGIN_REDIRECT_URL = '/app/'
+# LOGOUT_REDIRECT_URL = '/'

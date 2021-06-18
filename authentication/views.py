@@ -13,6 +13,10 @@ from django.forms.utils import ErrorList
 from django.http import HttpResponse
 from .forms import LoginForm, SignUpForm
 
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
+
 def login_view(request):
     form = LoginForm(request.POST or None)
 
@@ -27,11 +31,11 @@ def login_view(request):
             request.session['username'] = username
             if user is not None:
                 login(request, user)
-                return redirect("/")
+                return redirect("/app")
             else:    
                 msg = 'Invalid credentials'    
         else:
-            msg = 'Error validating the form'    
+            msg = 'Error validating the form'
 
     return render(request, "accounts/login.html", {"form": form, "msg" : msg})
 

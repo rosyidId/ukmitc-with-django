@@ -1,12 +1,12 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from django.template import loader
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django import template
 from app.models import Anggota, Devisi, ProgramKerja, KalenderKerja, JadwalDiskusi
 from app import forms
 
-@login_required(login_url="/login/")
+@login_required
 def index(request):
     
     context = {}

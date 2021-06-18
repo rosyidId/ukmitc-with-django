@@ -24,7 +24,7 @@
 
     <li class="nav-item nav-category">Main Menu</li>
     <li class="nav-item active">
-      <a class="nav-link" href="/">
+      <a class="nav-link" href="{% url 'home' %}">
         <i class="menu-icon typcn typcn-document-text"></i>
         <span class="menu-title">DASHBOARD</span>
       </a>
@@ -59,7 +59,7 @@
     <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
         <i class="menu-icon typcn typcn-document-add"></i>
-        <span class="menu-title">KALENDER KERJA</span>
+        <span class="menu-title">PROGRAM KERJA</span>
         <i class="menu-arrow"></i>
       </a>
       <div class="collapse" id="auth">
@@ -83,10 +83,17 @@
       </div>
     </li>
 
-    <li class="nav-item active">
+    <!-- <li class="nav-item active">
       <a class="nav-link" href="{% url 'jadwalList' %}">
         <i class="menu-icon typcn typcn-document-text"></i>
         <span class="menu-title">JADWAL DISKUSI</span>
+      </a>
+    </li> -->
+
+    <li class="nav-item active">
+      <a class="nav-link" href="{% url 'calendarapp:calendar' %}">
+        <i class="menu-icon typcn typcn-document-text"></i>
+        <span class="menu-title">KALENDER</span>
       </a>
     </li>
 
@@ -96,5 +103,6 @@
         <span class="menu-title">Logout ( {{ user.username }} )</span>
       </a>
     </li>
+
   </ul>
 </nav>

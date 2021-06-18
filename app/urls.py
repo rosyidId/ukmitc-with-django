@@ -3,7 +3,7 @@
 Copyright (c) 2019 - present AppSeed.us
 """
 
-from django.urls import path, re_path
+from django.urls import path, re_path, include
 from app import views, grafik
 
 urlpatterns = [
@@ -23,7 +23,7 @@ urlpatterns = [
     path('kalender/<int:id>', views.program_kalender, name="kalenderProgram"),
     path('kalender/create', views.kalender_create, name='kalenderCreate'),
     
-    path('AnggotaByDevisi', grafik.AnggotaByDevisi.as_view()),
+    path('AnggotaByDevisi', grafik.AnggotaByDevisi.as_view(), name="anggotaByDevisi"),
     path('anggotaByDevisi', grafik.AnggotaByDevisi.as_view()),
     
     path('jadwal', views.jadwal_list, name="jadwalList"),

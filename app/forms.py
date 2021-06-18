@@ -7,6 +7,7 @@ from django import forms
 from app import models
 from django.forms import widgets
 from django.utils.regex_helper import Choice
+from django.forms import ModelForm, DateInput
 
 class DaftarForm(forms.Form):
     nim = forms.IntegerField(label="NIM",

@@ -1,0 +1,33 @@
+{% extends "layouts/basecal.html" %}
+
+{% block title %} Tables {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+<div class="content-wrapper">
+    <div class="row">
+      <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <div class="clearfix">
+                <span class="left m-2" style="font-size: 20px;">Wellcome, {{ request.user }}</span>
+                <!-- <a class="btn btn-primary right" href="{% url 'logout' %}"> Logout </a> -->
+                <a class="btn btn-primary right mr-2" href="{% url 'calendarapp:calendar' %}?{{ next_month }} "> Bulan Berikutnya >> </a>
+                <a class="btn btn-primary right mr-2" href="{% url 'calendarapp:calendar' %}?{{ prev_month }}"> << Bulan Sebelumnya </a>
+                <div>
+                  <a class="btn btn-primary right mr-2" href="{% url 'calendarapp:event_new' %}"><i class="mdi mdi-plus"></i>
+                  Buat Acara</a>
+                </div>
+            </div>
+            <div style="color: blue;" class="clearfix">
+              {{ calendar }}
+              {{ event.get_html_url }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

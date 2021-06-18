@@ -22,33 +22,11 @@
         <a class="btn btn-primary" href="{% url 'daftar' %}"><b>Daftar</b></a>
     </div>
   </div>
-  <div class="col-lg-6 grid-margin stretch-card m-5">
-    <div class="card">
-      <div class="p-4 pr-5 border-bottom bg-light d-flex justify-content-between">
-        <h4 class="card-title mb-0">Pie chart</h4>
-        <id id="pie-chart-legend" class="mr-4"></id>
-      </div>
-      <div class="card-body d-flex">
-        <canvas class="my-auto" id="pieChart" height="130"></canvas>
-      </div>
-    </div>
-  </div>
   <style>
     .content-grafik{
         margin-bottom: 10px;
     }
   </style>
-  <!-- <div class="col-lg-12 grid-margin stretch-card">
-    <div class="card">
-      <div class="p-4 pr-5 border-bottom bg-light d-flex justify-content-between">
-        <h4 class="card-title mb-0">Pie chart</h4>
-        <id id="pie-chart-legend" class="mr-4"></id>
-      </div>
-      <div class="card-body d-flex">
-        <canvas class="my-auto" id="anggota-charts" height="130"></canvas>
-      </div>
-    </div>
-  </div> -->
   </center>
 {% endblock content %}
 
@@ -70,7 +48,7 @@
             },
             accessibility: {
                 point: {
-                    valueSuffix: ' Anggota'
+                    valueSuffix: 'Anggota'
                 }
             },
             plotOptions: {
@@ -89,11 +67,13 @@
             }
         };
         
-        jQuery.getJSON("AnggotaByDevisi", function(resSeries) {
+        jQuery.getJSON("127.0.0.1:8000/app/anggotaByDevisi", function(resSeries) {
             chart1.series.push(resSeries);
             new Highcharts.Chart(chart1);
         });
+
     </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
     <script src="{% static '/assets/highcharts/highcharts.js' %}"></script>
 {% endblock %}

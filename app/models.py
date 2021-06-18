@@ -6,6 +6,7 @@ Copyright (c) 2019 - present AppSeed.us
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
+from django.urls import reverse
 
 # Create your models here.
 
@@ -64,5 +65,3 @@ class JadwalDiskusi(models.Model):
     
     created = models.DateTimeField(auto_now=False, auto_now_add=True, blank=True, null=True)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False, blank=True, null=True)
-    
-    

@@ -15,7 +15,7 @@
                 <table class="table">
                     <tbody>
                       <tr>
-                          <th><h2>Detail Anggota</h2></th>
+                          <th><h3>Detail Anggota</h3></th>
                       </tr>
                       <tr>
                         <th style="width: 25%;">NIM</th>
@@ -67,7 +67,8 @@
                       </tr>
                     </tbody>
                   </table>
-              </div>
+                </div>
+                <button onclick="window.print()" class="btn btn-primary">Print</button>
             </div>
           </div>
         </div>
@@ -75,7 +76,6 @@
     
     {% endblock content %}
     
-    <!-- Specific JS goes HERE -->
     {% block scripts %}
     <script>
         const myModal = document.getElementById('myModal')
